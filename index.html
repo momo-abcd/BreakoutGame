@@ -8,17 +8,11 @@
 </head>
 <body>
     <div class="container">
+        <div id="score">score: 0</div>
+        <div id="lives">lives: 0</div>
+        <div class="controlBar"></div>
         <canvas  width="500px" height="500px" style="width:500px;height:500px;"></canvas> 
     </div>
-<script>
-    const canvas = document.getElementsByTagName('canvas')[0];
-    console.log(canvas);
-    const ctx = canvas.getContext('2d');
-            ctx.beginPath();
-            ctx.arc(50,50 ,10,0,Math.PI*2,false);
-
-            ctx.fillStyle = "red";  //채울 색상
-            ctx.fill(); //채우기
-</script>
+    <script src="./app.js"></script>
 </body>
 </html>
