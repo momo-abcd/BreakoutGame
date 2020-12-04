@@ -30,3 +30,13 @@ canvas {
     right:calc((100% - 470px) / 2);
     color:#099EE2;
 }
+.blockLayout {
+    position: absolute;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-evenly;
+    border:1px solid #000;
+    width:500px;
+    height:200px;
+    left:calc((100% - 500px) / 2);top:50px;
+}
