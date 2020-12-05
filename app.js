@@ -1,19 +1,26 @@
 import { MakeBlock } from './MakeBlock.js';
+import { Ball } from './ball.js';
+import { ControlBar } from './controlBar.js';
 
 
 
-    const canvas = document.getElementsByTagName('canvas')[0];
-    const ctx = canvas.getContext('2d');
-            ctx.beginPath();
-            ctx.arc(50,300 ,10,0,Math.PI*2,false);
+const canvas = document.getElementsByTagName('canvas')[0];
+const ctx = canvas.getContext('2d');
 
-            ctx.fillStyle = "red";  //채울 색상
-            ctx.fill(); //채우기
 
-    const blockLayout = document.querySelector('.blockLayout');
+const ball = new Ball(ctx);
+const controlBar = new ControlBar(ctx);
 
-    let blocks = new Array();
-    for(let i=0;i<16;i++){
-        blocks.push(new MakeBlock());
-        blockLayout.appendChild(blocks[i].ret());
-    }
+document.addEventListener("keydown",controlBar.keyDownHandler.bind(controlBar));
+document.addEventListener("keyup",controlBar.keyUpHandler.bind(controlBar));
+
+
+
+window.requestAnimationFrame(draw);
+
+function draw() {
+    ctx.clearRect(0,0,500,500);
+    ball.draw();
+    controlBar.draw();
+    window.requestAnimationFrame(draw);
+}
